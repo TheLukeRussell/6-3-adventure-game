@@ -40,6 +40,7 @@ while minutes < 30:
     else:
         print('\n Great! Let\'s get started!')
         print('\n So ' + name + ' Which item would you like to start with?')
+        print("\n You have a choice between 'milk', 'eggs', 'fruit', or 'bread'")
         if userInput == 'milk':
             print('\nYou chose milk which is the aisle furthest away from you so you lose 10 minutes of time!')
             minutes += 10
@@ -65,7 +66,7 @@ while minutes < 30:
                     cart += 1
                     print('\n Finally you head to the fruit aisle to pick up your last item')
                     print('\n Would you like to ask an employee for help finding your items?')
-                    print("\nType: 'help me' or 'go away")
+                    print("\nType: 'help me' or 'go away'")
                     employee_help = input()
                     if employee_help.lower() == 'help me':
                         print('\nYou meet a kind worker who helps you find all the fruits you were looking for in a short amount of time!')
@@ -81,8 +82,22 @@ while minutes < 30:
                     print('\nGreat let\'s head to the fruit aisle')
                     print('\nYou meet a kind worker who helps you find all the fruits you were looking for in a short amount of time!')
                     minutes += 2
-                    print('You now have spent ' + minutes + ' minutes in Whole Foods')
+                    print('\nYou now have spent 12 minutes in Whole Foods')
                     cart += 1
+                    print('\n Now, we have one more item left. Let\'s head to the egg aisle!')
+                    print('\nOH NO! All of the eggs are broken! Would you like to wait for an employee to get fresh eggs or would you like to take broken eggs home?')
+                    print("\n Type: 'Get help' or 'broken eggs'")
+                    broken_eggs = input()
+                    if broken_eggs.lower() == 'get help':
+                        print('\nThe broken eggs only take 15 minutes to get!')
+                        print('\nYou now have spent 27 minutes at Whole Foods')
+                        cart += 1
+                    elif broken_eggs.lower() == 'broken eggs':
+                        print('\nYour significant other SCREAMED at you for bringing home broken eggs')
+                        print('\nEven though you got all the items, you got screamed at, so did you really win?')
+                        print('\n NOPE YOU DID NOT')
+                        break
+
 
             elif milk_choice.lower() == 'walk away':
                 print('\nBeatrice screams at you for not wanting to talk. You and Beatrice are escorted out and you leave with no groceries or self-esteem. :(')
