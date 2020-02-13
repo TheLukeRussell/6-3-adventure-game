@@ -1,3 +1,4 @@
+import random
 
 print("Welome to Walmart! {name}")
 
@@ -125,16 +126,107 @@ while decision == "y":
                 else:
                     print("""
 
+            Why did you walk all the way over here if you if you
+            aren't going to put it in your cart?
+
+                        """)
+
+
+
+#if player chooses eggs*******************************************************
+
+
+
+        if choice == "eggs":
+            print("""
+
+            You proceed to the eggs.
+
+            """)
+            response_to_scooter_woman = input("""
+            You are in a hurry and a woman on a scooter is blocking the eggs.
+
+            A: Wait for her to finish.
+            B: Ask woman to scoot over so you can reach the eggs.
+
+            """).lower()
+            # milk will spoil while waiting
+            if response_to_scooter_woman == "a":
+                if "milk" not in cart_contents:
+                    print("""
+
+            Since you are so patient, you reward yourself with a sample of cheese.
+            Go you!
+
+                    """)
+                    eggs_response_a = input("you get to the eggs, would you like to pick them up (Y/N) ").lower()
+
+                    if eggs_response_a == "y":
+                        for index, char in enumerate(shopping_list):
+                            if char == choice:
+                                cart_contents[index] = choice
+                                print("You added the eggs to your cart")
+                                print("cart contents", cart_contents)
+                    else:
+                        print("""
+
+                        Why did you walk all the way over here if you if you
+                        aren't going to put it in your cart?
+
+                        """)
+                if "milk" in cart_contents:
+                    print("""
+
+            Your milk spoiled waiting for her to move. So sad!
+
+                    """)
+                    cart_contents[0] = "_"
+                    print(cart_contents)
+
+                    eggs_response_a = input("you get to the eggs, would you like to pick them up (Y/N) ").lower()
+
+                    if eggs_response_a == "y":
+                        for index, char in enumerate(shopping_list):
+                            if char == choice:
+                                cart_contents[index] = choice
+                                print("You added the eggs to your cart")
+                                print("cart contents", cart_contents)
+                    else:
+                        print("""
+
                         Why did you walk all the way over here if you if you
                         aren't going to put it in your cart?
 
                         """)
 
-        if choice == "eggs":
-            for index, char in enumerate(shopping_list):
-                if char == choice:
-                    cart_contents[index] = choice
-                    print("cart contents", cart_contents)
+
+            # scooter lady will randomly get mad if you ask her to move
+            if response_to_scooter_woman == "b":
+                mad_or_not = ['mad','not mad']
+                attitude = random.choice(mad_or_not)
+                if attitude == 'not mad':
+                    print("""
+            She is not mad. She kindly moves over and lets you get your eggs.
+
+                """)
+                    for index, char in enumerate(shopping_list):
+                        if char == choice:
+                            cart_contents[index] = choice
+                            print("You added eggs to your cart!")
+                            print("cart contents", cart_contents)
+
+                if attitude == 'mad':
+                    print("""
+            She is so mad! She runs you over for being rude and you lose the
+            contents of your cart.
+                    """)
+                    cart_contents = ['_'] * len(shopping_list)
+                    print("Your cart is now empty!")
+                    print(cart_contents)
+
+#if the player chooses bread*************************************************
+
+
         if choice == "bread":
             for index, char in enumerate(shopping_list):
                 if char == choice:
