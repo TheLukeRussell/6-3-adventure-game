@@ -77,6 +77,8 @@ while minutes < 30:
                         print('\nYou try to grab all the fruit but end up knocking over a few of the shelves because you do not have enough hands')
                         print('\nYou are escorted out of the store before you got your last item and went home without groceries')
                         break
+                    else:
+                        print('Come on.. you need to choose')
                         
                 elif eggs_fruit.lower() == 'fruit':
                     print('\nGreat let\'s head to the fruit aisle')
@@ -97,21 +99,72 @@ while minutes < 30:
                         print('\nEven though you got all the items, you got screamed at, so did you really win?')
                         print('\n NOPE YOU DID NOT')
                         break
+                    else:
+                        print('Come on.. you need to choose')
+                else:
+                    print('Come on.. you need to choose')
 
 
             elif milk_choice.lower() == 'walk away':
                 print('\nBeatrice screams at you for not wanting to talk. You and Beatrice are escorted out and you leave with no groceries or self-esteem. :(')
                 break
+            else:
+                print('Come on.. you need to choose')
 
         elif userInput == 'bread':
             print('\nYou chose bread which is the aisle right in front of you so you do not lose any time!')
             minutes += 0
+            cart += 1
+            print('\nYou see someone put the last loaf of bread in their cart but falls out after')
+            print('\nDo you bring them the last loaf or keep it for yourself?')
+            print("\nType: 'Tell them' or 'Take it'")
+            last_loaf = input()
+            if last_loaf.lower() == 'tell them':
+                print('\nThey are so grateful that you told them that they give you the remaining groceries on your list')
+                print('\nYou thank them for their help and invite them over for dinner!')
+                cart += 3
+            elif last_loaf.lower() == 'take it':
+                print("\nYou were set up and was a secret contestant on the game-show 'What Would You Do?'. You failed the challenge and now have spent too much time at the store")
+                print('\nYou spend an hour talking to TV cameras and the producers')
+                minutes += 60
+            else:
+                print('Come on.. you need to choose')
         elif userInput == 'eggs':
             print('\nYou chose eggs which is the second closest aisle so you lose 2 minutes')
             minutes += 2
         elif userInput == 'fruit':
             print('\nYou chose fruit which is the 3rd closest aisle so you lose 3 minutes')
             minutes += 3
+        else:
+            print('Come on.. you need to choose')
 
     if cart == 4:
-        print('You got all you items!')
+        print('\nCongrats! You got all you items!')
+        minutes = str(minutes)
+        print('And it only took you ' + minutes + ' minutes')
+        print("""
+$$\     $$\  $$$$$$\  $$\   $$\       $$\      $$\ $$$$$$\ $$\   $$\ 
+\$$\   $$  |$$  __$$\ $$ |  $$ |      $$ | $\  $$ |\_$$  _|$$$\  $$ |
+ \$$\ $$  / $$ /  $$ |$$ |  $$ |      $$ |$$$\ $$ |  $$ |  $$$$\ $$ |
+  \$$$$  /  $$ |  $$ |$$ |  $$ |      $$ $$ $$\$$ |  $$ |  $$ $$\$$ |
+   \$$  /   $$ |  $$ |$$ |  $$ |      $$$$  _$$$$ |  $$ |  $$ \$$$$ |
+    $$ |    $$ |  $$ |$$ |  $$ |      $$$  / \$$$ |  $$ |  $$ |\$$$ |
+    $$ |     $$$$$$  |\$$$$$$  |      $$  /   \$$ |$$$$$$\ $$ | \$$ |
+    \__|     \______/  \______/       \__/     \__|\______|\__|  \__|
+    """)
+        break
+    if minutes >= 31:
+        print('\nBOO! You did not get all of your items!')
+        minutes = str(minutes)
+        print('You spent ' + minutes + ' minutes at the store')
+        print("""
+$$\     $$\  $$$$$$\  $$\   $$\       $$\       $$$$$$\   $$$$$$\  $$$$$$$$\ 
+\$$\   $$  |$$  __$$\ $$ |  $$ |      $$ |     $$  __$$\ $$  __$$\ $$  _____|
+ \$$\ $$  / $$ /  $$ |$$ |  $$ |      $$ |     $$ /  $$ |$$ /  \__|$$ |      
+  \$$$$  /  $$ |  $$ |$$ |  $$ |      $$ |     $$ |  $$ |\$$$$$$\  $$$$$\    
+   \$$  /   $$ |  $$ |$$ |  $$ |      $$ |     $$ |  $$ | \____$$\ $$  __|   
+    $$ |    $$ |  $$ |$$ |  $$ |      $$ |     $$ |  $$ |$$\   $$ |$$ |      
+    $$ |     $$$$$$  |\$$$$$$  |      $$$$$$$$\ $$$$$$  |\$$$$$$  |$$$$$$$$\ 
+    \__|     \______/  \______/       \________|\______/  \______/ \________|
+        """)
+        break
