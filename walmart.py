@@ -79,6 +79,13 @@ while decision == "y":
 
 
             if response_to_yodel_boy== "b":
+                if "eggs" not in cart_contents:
+                    print("""
+
+            Yodel Boy is very angry that you would not let him sing.
+            You go hide in the nearest bathroom until he calms down.
+
+                    """)
                 if "eggs" in cart_contents:
                     print("""
 
@@ -89,47 +96,40 @@ while decision == "y":
                     cart_contents[2] = "_"
                     print(cart_contents)
 
-                # if eggs are in your cart, they are removed
-                if "eggs" not in cart_contents:
-                    print("""
+                    milk_response_b = input("you get to the milk, would you like to pick it up (Y/N) ").lower()
+                    if milk_response_b == "y":
+                        for index, char in enumerate(shopping_list):
+                            if char == choice:
+                                cart_contents[index] = choice
+                                print("You added the milk to your cart")
+                                print("cart contents", cart_contents)
+                    else:
+                        print("""
 
-            Yodel Boy is very angry that you would not let him sing.
+                            Why did you walk all the way over here if you if you
+                            aren't going to put it in your cart?
 
-                    """)
-
-                # if eggs are not in your cart yodel boy does not break you eggs
-                # for index, char in enumerate(shopping_list):
-                #     if char == choice:
-                #         cart_contents[index] = choice
-                #         print("You added the milk to your cart")
-                #         print("cart contents", cart_contents)
-
-                # milk_response_a = input("you get to the milk, would you like to pick it up (Y/N) ").lower()
-
-                # if milk_response_a == "y":
-                #     for index, char in enumerate(shopping_list):
-                #         if char == choice:
-                #             cart_contents[index] = choice
-                #             print("You added the milk to your cart")
-                #             print("cart contents", cart_contents)
-                # else:
-                #     print("""
-                #
-                #     Why did you walk all the way over here if you if you
-                #     aren't going to put it in your cart?
-                #
-                #     """)
+                            """)
 
             if response_to_yodel_boy == "c":
                 print("""
             Yodel Boy is not signing autographs at this time.
             """)
+                milk_response_c = input("you get to the milk, would you like to pick it up (Y/N) ").lower()
+                if milk_response_c == "y":
+                    for index, char in enumerate(shopping_list):
+                        if char == choice:
+                            cart_contents[index] = choice
+                            print("You added the milk to your cart")
+                            print("cart contents", cart_contents)
+                else:
+                    print("""
 
+                        Why did you walk all the way over here if you if you
+                        aren't going to put it in your cart?
 
-            # for index, char in enumerate(shopping_list):
-            #     if char == choice:
-            #         cart_contents[index] = choice
-            #         print("cart contents", cart_contents)
+                        """)
+
         if choice == "eggs":
             for index, char in enumerate(shopping_list):
                 if char == choice:
