@@ -45,7 +45,8 @@ while minutes < 30:
         print('\n Great! Let\'s get started!')
         print('\n So ' + name + ' Which item would you like to start with?')
         print("\n You have a choice between 'milk', 'eggs', 'fruit', or 'bread'")
-        if userInput == 'milk':
+        grocery_list = input('> ')
+        if grocery_list.lower() == 'milk':
             print('\nYou chose milk which is the aisle furthest away from you so you lose 10 minutes of time!')
             minutes += 10
 
@@ -53,7 +54,7 @@ while minutes < 30:
             print('\nWould you like to stop and chat with Beatrice?')
             print("\nType: 'Talk to Beatrice' or 'walk away'")
 
-            milk_choice = input()
+            milk_choice = input()'> '
 
             if milk_choice.lower() == 'talk to beatrice':
                 print('\nBeatrice talks about her church congregation but sees that you are in a hurry. Beatrice gives you her bread so you don\'t have to get it yourself!')
@@ -61,7 +62,7 @@ while minutes < 30:
 
                 print('\nNow that you already have milk and bread, would you like to move on to the eggs or fruit next?')
                 print("\nType: 'eggs' or 'fruit'")
-                eggs_fruit = input()
+                eggs_fruit = input('> ')
                 if eggs_fruit.lower() == 'eggs':
                     print('\nGreat let\'s head to the egg aisle')
                     print('\nOH NO! All of the eggs are broken! You now have to wait 10 minutes while an employee acquires a new box of eggs')
@@ -71,7 +72,7 @@ while minutes < 30:
                     print('\n Finally you head to the fruit aisle to pick up your last item')
                     print('\n Would you like to ask an employee for help finding your items?')
                     print("\nType: 'help me' or 'go away'")
-                    employee_help = input()
+                    employee_help = input('> ')
                     if employee_help.lower() == 'help me':
                         print('\nYou meet a kind worker who helps you find all the fruits you were looking for in a short amount of time!')
                         minutes += 2
@@ -93,7 +94,7 @@ while minutes < 30:
                     print('\n Now, we have one more item left. Let\'s head to the egg aisle!')
                     print('\nOH NO! All of the eggs are broken! Would you like to wait for an employee to get fresh eggs or would you like to take broken eggs home?')
                     print("\n Type: 'Get help' or 'broken eggs'")
-                    broken_eggs = input()
+                    broken_eggs = input('> ')
                     if broken_eggs.lower() == 'get help':
                         print('\nThe broken eggs only take 15 minutes to get!')
                         print('\nYou now have spent 27 minutes at Whole Foods')
@@ -115,14 +116,14 @@ while minutes < 30:
             else:
                 print('Come on.. you need to choose')
 
-        elif userInput == 'bread':
+        elif grocery_list.lower() == 'bread':
             print('\nYou chose bread which is the aisle right in front of you so you do not lose any time!')
             minutes += 0
             cart += 1
             print('\nYou see someone put the last loaf of bread in their cart but falls out after')
             print('\nDo you bring them the last loaf or keep it for yourself?')
             print("\nType: 'Tell them' or 'Take it'")
-            last_loaf = input()
+            last_loaf = input('> ')
             if last_loaf.lower() == 'tell them':
                 print('\nThey are so grateful that you told them that they give you the remaining groceries on your list')
                 print('\nYou thank them for their help and invite them over for dinner!')
@@ -133,13 +134,13 @@ while minutes < 30:
                 minutes += 60
             else:
                 print('Come on.. you need to choose')
-        elif userInput == 'eggs':
+        elif grocery_list.lower() == 'eggs':
             print('\nYou chose eggs which is the second closest aisle so you lose 2 minutes')
             minutes += 2
             print('\nWhile grabbing the eggs, you see someone trying to steal some cookie dough!! What are you going to do?!')
             cart += 1
             print("\nType: 'Tell someone' or 'Let it go'")
-            thief = input()
+            thief = input('> ')
             if thief.lower() == 'tell someone':
                 print('\nYou reported the robber to the store manager')
                 print('\nOH NO! The robber pulls a gun on the manager and holds the entire store hostage for 5 hours!!')
@@ -152,12 +153,12 @@ while minutes < 30:
                 print('\nFeeling guilty AF, you still need to carry on and figure out what your next item needs to be')
                 print('\nWould you like to go to the milk aisle or the fruit aisle')
                 print("\nType: 'milk' or 'fruit'")
-                milk_fruit = input()
+                milk_fruit = input('> ')
                 if milk_fruit.lower() == 'milk':
                     print('\nOn the way to grab your milk, your old friend Beatrice stops you and asks if you have a couple minutes to chat')
                     print('\nWould you like to stop and chat with Beatrice?')
                     print("\nType: 'Talk' or 'Walk'")
-                    choice_milk = input()
+                    choice_milk = input('> ')
                     if choice_milk.lower() == 'talk':
                         print('\nYou and Beatrice talk about politics and the way of life')
                         print('\nThe conversation lasts for 10 minutes but you end up being able to get you milk')
@@ -167,7 +168,7 @@ while minutes < 30:
                         print('\nYou notice they are giving out free samples of the honeycrisp apples')
                         print('\nWould you like to try a sample?')
                         print("\nType: 'I love honeycrisp' or 'no honeycrisp for me'")
-                        honeycrisp = input()
+                        honeycrisp = input('> ')
                         if honeycrisp.lower() == 'i love honeycrisp':
                             print('\n Oh No!! The apple gave you food poisoning and you spent 37 minutes in the bathroom!')
                             minutes += 37
@@ -190,7 +191,7 @@ while minutes < 30:
                     print('\nThere is one stipulation if you want to start with fruit though..')
                     print('\nAre you up for it?')
                     print("\nType: 'duh' or 'nah fam'")
-                    workout = input()
+                    workout = input('> ')
                     if workout.lower() == 'nah fam':
                         print('\nSomeone as stubborn as you deserves to shop at Whole Foods for the rest of your life')
                         print('\nYou win free groceries for life with 10 minute delivery so go home and enjoy you dinner')
@@ -200,7 +201,7 @@ while minutes < 30:
                         print('I am going to randomize a number between 1-50 and if it is over 25, you have to leave without groceries.\n If you win, you get to go home and your shopping trip will be over')
                         print('\nReady?')
                         print("\nType: 'yes' or 'no'")
-                        ready = input()
+                        ready = input('> ')
                         if ready.lower() == 'yes':
                             print('\nYour number is.... ')
                             print(number)
@@ -224,19 +225,19 @@ while minutes < 30:
                 print('Come on.. you need to choose')
 
 
-        elif userInput == 'fruit':
+        elif grocery_list.lower() == 'fruit':
             print('\nYou chose fruit which is the 3rd closest aisle so you lose 3 minutes')
             minutes += 3
             print('\nThe fruit you acquire was just stocked on the shelf so you know you are getting the best fruit')
             cart += 1
             print('\nWhich aisle would you like to go to next?')
             print("\nType: 'milk', 'eggs', or 'bread'")
-            aisle_list = input()
+            aisle_list = input('> ')
             if aisle_list.lower() == 'milk':
                 print('\nOn the way to the milk aisle, you catch the Corona Virus and need to drink a case of Corona Light\'s to cure yourself')
                 print('\nDo you drink the Corona\'s or do you head home to stop the spread of the disease?')
                 print("\nType: 'Lifes a beach' or 'Head home'")
-                corona = input()
+                corona = input('> ')
                 if corona.lower() == 'lifes a beach':
                     print('\nOh no! You go drunk at Whole Foods on a Tuesday afternoon')
                     unfinished = 0
@@ -253,7 +254,7 @@ while minutes < 30:
                 minutes += 10
                 print('\nEven though you tried avoiding them, your ex spots you trying to escape and wants to have a conversation, what do you do?')
                 print("Type: 'Stay and talk' or 'Bye Felicia'")
-                ex_lover = input()
+                ex_lover = input('> ')
                 if ex_lover.lower() == 'stay and talk':
                     print('You stay and catch up with your ex and find out that she owns the store! She gives you the rest of your items for free!')
                     cart += 2
@@ -266,6 +267,23 @@ while minutes < 30:
 
             elif aisle_list.lower() == 'bread':
                 print('\nYou head to the bread aisle to continue your shopping.')
+                print('\nThe bread is laid out nicely on the shelf and you put it in your cart')
+                cart += 1
+                minutes += 2
+                print('\nWould you like to head to the milk or egg aisle?')
+                print("Type: 'milk' or 'eggs'")
+                milk_egg = input('> ')
+                if milk_egg.lower() == 'milk':
+                    print('You head to the milk aisle to grab some milk for your family but the milk is out of stock due to the Milk Crisis of 2020')
+                    print('You leave the store knowing you will get an earful from your significant other')
+                    unfinished = 0
+                elif milk_egg.lower() == 'eggs':
+                    print('Lucky You! The eggs and the milk section were recently moved right next to each other!')
+                    print('You grab the last two items and make your way home')
+                    minutes += 3
+                    cart += 2
+                else:
+                    print('Come on.. you need to choose')
             else:
                 print('Come on.. you need to choose')
                 
