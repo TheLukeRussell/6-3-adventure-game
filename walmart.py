@@ -170,8 +170,8 @@ while decision == "y":
                     else:
                         print("""
 
-                        Why did you walk all the way over here if you if you
-                        aren't going to put it in your cart?
+            Why did you walk all the way over here if you if you
+            aren't going to put it in your cart?
 
                         """)
                 if "milk" in cart_contents:
@@ -194,8 +194,8 @@ while decision == "y":
                     else:
                         print("""
 
-                        Why did you walk all the way over here if you if you
-                        aren't going to put it in your cart?
+            Why did you walk all the way over here if you if you
+            aren't going to put it in your cart?
 
                         """)
 
@@ -228,10 +228,64 @@ while decision == "y":
 
 
         if choice == "bread":
-            for index, char in enumerate(shopping_list):
-                if char == choice:
-                    cart_contents[index] = choice
-                    print("cart contents", cart_contents)
+            print("""
+
+            You proceed to the bread aisle.
+
+            """)
+            response_to_wet_floor = input("""
+            You notice the floor is wet, what should you do?
+
+            A: Go through the puddle.
+            B: Tell an employee.
+
+            """).lower()
+            if response_to_wet_floor == "a":
+                fall_or_not = ['fall','not fall','fall']
+                accident = random.choice(fall_or_not)
+                if accident == 'not fall':
+                    print("""
+
+            You bravely walk through the puddle, pick up the bread, and do not fall!
+            Go you!
+
+                """)
+                    for index, char in enumerate(shopping_list):
+                        if char == choice:
+                            cart_contents[index] = choice
+                            print("You added bread to your cart!")
+                            print("cart contents", cart_contents)
+
+                if accident == 'fall':
+                    print("""
+            You slip and fall in the floor. You sue Walmart and you get $1,000,000.
+            You also get free groceries, congrats!.
+                    """)
+                    break
+            if response_to_wet_floor == "b":
+                print("""
+
+            You told an employee about the puddle. You are now the town hero,
+            but you still have to pay for your groceries.
+
+                """)
+                bread_response_a = input("you get to the eggs, would you like to pick them up (Y/N) ").lower()
+
+                if bread_response_a == "y":
+                    for index, char in enumerate(shopping_list):
+                        if char == choice:
+                            cart_contents[index] = choice
+                            print("You added the bread to your cart")
+                            print("cart contents", cart_contents)
+                else:
+                    print("""
+
+                Why did you walk all the way over here if you if you
+                aren't going to put it in your cart?
+
+                    """)
+
+# if the player chooses fruit************************************************
         if choice == "fruit":
             for index, char in enumerate(shopping_list):
                 if char == choice:
