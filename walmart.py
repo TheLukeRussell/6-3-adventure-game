@@ -86,6 +86,9 @@ while decision == "y":
             He breaks your eggs.
 
                 """)
+                    cart_contents[2] = "_"
+                    print(cart_contents)
+
                 # if eggs are in your cart, they are removed
                 if "eggs" not in cart_contents:
                     print("""
