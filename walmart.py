@@ -287,10 +287,25 @@ while decision == "y":
 
 # if the player chooses fruit************************************************
         if choice == "fruit":
-            for index, char in enumerate(shopping_list):
-                if char == choice:
-                    cart_contents[index] = choice
-                    print("cart contents", cart_contents)
+            print("""
+
+            You get to the fruit section and come across a monkey guarding the bananas.
+
+             """)
+             approach_monkey = input("""
+
+             Do you want to approach the monkey? (Y/N)
+
+             """).lower()
+             if approach_monkey == "y":
+                 print("You have approached the monkey")
+             if approach_monkey == "n":
+                 print("You can't complete your shopping trip if you don't get bananas")
+            # 
+            # for index, char in enumerate(shopping_list):
+            #     if char == choice:
+            #         cart_contents[index] = choice
+            #         print("cart contents", cart_contents)
     if choice not in shopping_list:
         if choice == "exit":
             check = any(item in cart_contents for item in shopping_list)
