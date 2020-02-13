@@ -4,7 +4,7 @@ decision = input('Would you like to start shopping? (Y/N)')
 
 
 shopping_list = ['milk', 'bread', 'eggs', 'fruit']
-print(shopping_list)
+# print(shopping_list)
 
 
 
@@ -35,14 +35,31 @@ while decision == "Y":
             if char == choice:
                 cart_contents[index] = choice
                 print("cart contents", cart_contents)
-    if choice == "exit":
-        print(
-        """
-        You left the store without paying.
-        You will now go to jail.
 
-        """)
-        break
+    if choice not in shopping_list:
+        if choice == "exit":
+            check = any(item in cart_contents for item in shopping_list)
+            if check is True:
+                print(
+                """
+
+                You left the store without paying.
+                You have been arrested and are going to jail.
+
+                """)
+                break
+            else:
+                print("""
+
+                You left the store without putting anything in your cart
+
+                """)
+                break
+
+        if choice != "exit":
+            print("""
+            That is not on your list, stick to the list!
+            """)
     if shopping_list == cart_contents:
         print("go to checkout")
         break
