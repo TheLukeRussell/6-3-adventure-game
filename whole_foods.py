@@ -1,3 +1,6 @@
+import random
+number = random.randint(1, 50)
+
 name = 'Jezebel'
 
 print('\n Congrats ' + name + '! You have chosen the high-class, but expensive route of a health foods store. Be prepared to face the challenges of the rich, wealthy and pretentious 1 percent of modern America.')
@@ -61,7 +64,7 @@ while minutes < 30:
                 eggs_fruit = input()
                 if eggs_fruit.lower() == 'eggs':
                     print('\nGreat let\'s head to the egg aisle')
-                    print('\nOH NO! All of the eggs are broken! You now have to wait 10 minutes while an employee get\'s some new eggs')
+                    print('\nOH NO! All of the eggs are broken! You now have to wait 10 minutes while an employee acquires a new box of eggs')
                     minutes += 10
                     print('\nYou now have spent 20 minutes in Whole Foods')
                     cart += 1
@@ -182,8 +185,38 @@ while minutes < 30:
                     else:
                         print('Come on.. you need to choose')
 
-                elif milk_fuit.lower() == 'fruit':
-                    print('\So you decided to grab some fruit huh?')
+                elif milk_fruit.lower() == 'fruit':
+                    print('\nSo you decided to grab some fruit huh?')
+                    print('\nThere is one stipulation if you want to start with fruit though..')
+                    print('\nAre you up for it?')
+                    print("\nType: 'duh' or 'nah fam'")
+                    workout = input()
+                    if workout.lower() == 'nah fam':
+                        print('\nSomeone as stubborn as you deserves to shop at Whole Foods for the rest of your life')
+                        print('\nYou win free groceries for life with 10 minute delivery so go home and enjoy you dinner')
+                        cart += 1
+                    elif workout.lower() == 'duh':
+                        print('\nGreat! If you want your groceries, you have to pass this challenge')
+                        print('I am going to randomize a number between 1-50 and if it is over 25, you have to leave without groceries.\n If you win, you get to go home and your shopping trip will be over')
+                        print('\nReady?')
+                        print("\nType: 'yes' or 'no'")
+                        ready = input()
+                        if ready.lower() == 'yes':
+                            print('\nYour number is.... ')
+                            print(number)
+                            if number <= 25:
+                                print('Congrats, you did it!')
+                                cart += 1
+                                minutes += 15
+                            else:
+                                unfinished = 0
+                        elif ready.lower() == 'no':
+                            print('Wow, you can\'t even do the challenge, get out of here!')
+                            unfinished = 0
+                        else:
+                            print('Come on.. you need to choose')
+                    else:
+                        print('Come on.. you need to choose')
                 else:
                     print('Come on.. you need to choose')
 
@@ -194,6 +227,48 @@ while minutes < 30:
         elif userInput == 'fruit':
             print('\nYou chose fruit which is the 3rd closest aisle so you lose 3 minutes')
             minutes += 3
+            print('\nThe fruit you acquire was just stocked on the shelf so you know you are getting the best fruit')
+            cart += 1
+            print('\nWhich aisle would you like to go to next?')
+            print("\nType: 'milk', 'eggs', or 'bread'")
+            aisle_list = input()
+            if aisle_list.lower() == 'milk':
+                print('\nOn the way to the milk aisle, you catch the Corona Virus and need to drink a case of Corona Light\'s to cure yourself')
+                print('\nDo you drink the Corona\'s or do you head home to stop the spread of the disease?')
+                print("\nType: 'Lifes a beach' or 'Head home'")
+                corona = input()
+                if corona.lower() == 'lifes a beach':
+                    print('\nOh no! You go drunk at Whole Foods on a Tuesday afternoon')
+                    unfinished = 0
+                elif corona.lower() == 'head home':
+                    print('\nEven though you did the right thing, you still get chewed out by your significant other for not getting groceries')
+                    unfinished = 0
+                else:
+                    print('Come on.. you need to choose')
+            elif aisle_list.lower() == 'eggs':
+                print('\nYou head to the egg aisle to continue your shopping.')
+                print('\nIt takes you 10 minutes to get to the bread aisle because you got distracted by the charcuterie boards that were on sale')
+                print('\nYou pick up the eggs and head over to the milk aisle because you saw your ex in the bread aisle')
+                cart += 1
+                minutes += 10
+                print('\nEven though you tried avoiding them, your ex spots you trying to escape and wants to have a conversation, what do you do?')
+                print("Type: 'Stay and talk' or 'Bye Felicia'")
+                ex_lover = input()
+                if ex_lover.lower() == 'stay and talk':
+                    print('You stay and catch up with your ex and find out that she owns the store! She gives you the rest of your items for free!')
+                    cart += 2
+                    minutes += 6
+                elif ex_lover.lower() == 'bye felicia':
+                    print('Your ex, having learned Mixed-Martial-Arts post-breakup, kicks you in the face for dissing her and you have to spend 45 minutes in the bathroom cleaning up your bloody nose.')
+                    minutes += 45
+                else:
+                    print('Come on.. you need to choose')
+
+            elif aisle_list.lower() == 'bread':
+                print('\nYou head to the bread aisle to continue your shopping.')
+            else:
+                print('Come on.. you need to choose')
+                
         else:
             print('Come on.. you need to choose')
 
