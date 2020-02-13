@@ -1,6 +1,7 @@
 
 print("Welome to Walmart! {name}")
-decision = input('Would you like to start shopping? (Y/N)')
+
+decision = input('Would you like to start shopping? (Y/N)').lower()
 
 
 shopping_list = ['milk', 'bread', 'eggs', 'fruit']
@@ -8,7 +9,7 @@ shopping_list = ['milk', 'bread', 'eggs', 'fruit']
 
 
 
-if decision == "Y":
+if decision == "y":
     print(
 """
 Ok, lets go shopping!
@@ -26,15 +27,23 @@ cart_contents = ['_'] * len(shopping_list)
 print("cart contents:",cart_contents)
 
 
-while decision == "Y":
-    choice = input("What would you like to pickup first? ")
+while decision == "y":
+    choice = input("What would you like to pickup first? ").lower()
 
     if choice in shopping_list:
         print(f"You chose {choice}")
-        for index, char in enumerate(shopping_list):
-            if char == choice:
-                cart_contents[index] = choice
-                print("cart contents", cart_contents)
+        if choice == "milk":
+            print("""
+
+            You proceed to the milk and come across a young boy yodeling.
+
+            """)
+            response = input("""Yodel Boy wants to do sing for you""")
+
+            for index, char in enumerate(shopping_list):
+                if char == choice:
+                    cart_contents[index] = choice
+                    print("cart contents", cart_contents)
 
     if choice not in shopping_list:
         if choice == "exit":
@@ -45,13 +54,15 @@ while decision == "Y":
 
                 You left the store without paying.
                 You have been arrested and are going to jail.
+                Your wife is going to be so mad.
 
                 """)
                 break
             else:
                 print("""
 
-                You left the store without putting anything in your cart
+                You left the store without putting anything in your cart.
+                Your wife is going to be so mad.
 
                 """)
                 break
