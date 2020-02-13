@@ -21,6 +21,7 @@ print('\n Choose y/n')
 
 minutes = 0
 cart = 0
+unfinished = 1
 
 while minutes < 30:
 
@@ -35,7 +36,7 @@ while minutes < 30:
     elif userInput == 'n':
         print('\n You were not ready to get groceries so you went home without any \n and your significant other asked for a divorce and the night was ruined')
         print('\n You lose, and now you are single')
-        break
+        unfinished = 0
 
     else:
         print('\n Great! Let\'s get started!')
@@ -76,7 +77,7 @@ while minutes < 30:
                     elif employee_help.lower() == 'go away':
                         print('\nYou try to grab all the fruit but end up knocking over a few of the shelves because you do not have enough hands')
                         print('\nYou are escorted out of the store before you got your last item and went home without groceries')
-                        break
+                        unfinished = 0
                     else:
                         print('Come on.. you need to choose')
                         
@@ -98,7 +99,7 @@ while minutes < 30:
                         print('\nYour significant other SCREAMED at you for bringing home broken eggs')
                         print('\nEven though you got all the items, you got screamed at, so did you really win?')
                         print('\n NOPE YOU DID NOT')
-                        break
+                        unfinished = 0
                     else:
                         print('Come on.. you need to choose')
                 else:
@@ -107,7 +108,7 @@ while minutes < 30:
 
             elif milk_choice.lower() == 'walk away':
                 print('\nBeatrice screams at you for not wanting to talk. You and Beatrice are escorted out and you leave with no groceries or self-esteem. :(')
-                break
+                unfinished = 0
             else:
                 print('Come on.. you need to choose')
 
@@ -132,6 +133,64 @@ while minutes < 30:
         elif userInput == 'eggs':
             print('\nYou chose eggs which is the second closest aisle so you lose 2 minutes')
             minutes += 2
+            print('\nWhile grabbing the eggs, you see someone trying to steal some cookie dough!! What are you going to do?!')
+            cart += 1
+            print("\nType: 'Tell someone' or 'Let it go'")
+            thief = input()
+            if thief.lower() == 'tell someone':
+                print('\nYou reported the robber to the store manager')
+                print('\nOH NO! The robber pulls a gun on the manager and holds the entire store hostage for 5 hours!!')
+                print('I think it is safe to say you will not get to dinner on time...')
+                minutes += 300
+            elif thief.lower() == 'let it go':
+                print('\nYou feel bad about the robber getting away with the cookie dough but he rewards you with a loaf of bread')
+                cart += 1
+                minutes += 7
+                print('\nFeeling guilty AF, you still need to carry on and figure out what your next item needs to be')
+                print('\nWould you like to go to the milk aisle or the fruit aisle')
+                print("\nType: 'milk' or 'fruit'")
+                milk_fruit = input()
+                if milk_fruit.lower() == 'milk':
+                    print('\nOn the way to grab your milk, your old friend Beatrice stops you and asks if you have a couple minutes to chat')
+                    print('\nWould you like to stop and chat with Beatrice?')
+                    print("\nType: 'Talk' or 'Walk'")
+                    choice_milk = input()
+                    if choice_milk.lower() == 'talk':
+                        print('\nYou and Beatrice talk about politics and the way of life')
+                        print('\nThe conversation lasts for 10 minutes but you end up being able to get you milk')
+                        minutes += 10
+                        cart += 1
+                        print('\nNow we are off to the fruit aisle for the last item!')
+                        print('\nYou notice they are giving out free samples of the honeycrisp apples')
+                        print('\nWould you like to try a sample?')
+                        print("\nType: 'I love honeycrisp' or 'no honeycrisp for me'")
+                        honeycrisp = input()
+                        if honeycrisp.lower() == 'i love honeycrisp':
+                            print('\n Oh No!! The apple gave you food poisoning and you spent 37 minutes in the bathroom!')
+                            minutes += 37
+                        elif honeycrisp.lower() == 'no honeycrisp for me':
+                            print('\nThat was probably a good choice, the apple looked a little weird to me')
+                            print('You grab the fruit you need and walk out the door in 5 minutes')
+                            cart += 1
+                            minutes += 5
+                        else:
+                            print('Come on.. you need to choose')
+                    elif choice_milk.lower() == 'walk':
+                        print('\nBeatrice screams at you for not wanting to talk. You and Beatrice are escorted out and you leave with no groceries or self-esteem. :(')
+                        unfinished = 0
+
+                    else:
+                        print('Come on.. you need to choose')
+
+                elif milk_fuit.lower() == 'fruit':
+                    print('\So you decided to grab some fruit huh?')
+                else:
+                    print('Come on.. you need to choose')
+
+            else:
+                print('Come on.. you need to choose')
+
+
         elif userInput == 'fruit':
             print('\nYou chose fruit which is the 3rd closest aisle so you lose 3 minutes')
             minutes += 3
@@ -154,6 +213,22 @@ $$\     $$\  $$$$$$\  $$\   $$\       $$\      $$\ $$$$$$\ $$\   $$\
     """)
         break
     if minutes >= 31:
+        print('\nBOO! You did not get all of your items!')
+        minutes = str(minutes)
+        print('You spent ' + minutes + ' minutes at the store')
+        print("""
+$$\     $$\  $$$$$$\  $$\   $$\       $$\       $$$$$$\   $$$$$$\  $$$$$$$$\ 
+\$$\   $$  |$$  __$$\ $$ |  $$ |      $$ |     $$  __$$\ $$  __$$\ $$  _____|
+ \$$\ $$  / $$ /  $$ |$$ |  $$ |      $$ |     $$ /  $$ |$$ /  \__|$$ |      
+  \$$$$  /  $$ |  $$ |$$ |  $$ |      $$ |     $$ |  $$ |\$$$$$$\  $$$$$\    
+   \$$  /   $$ |  $$ |$$ |  $$ |      $$ |     $$ |  $$ | \____$$\ $$  __|   
+    $$ |    $$ |  $$ |$$ |  $$ |      $$ |     $$ |  $$ |$$\   $$ |$$ |      
+    $$ |     $$$$$$  |\$$$$$$  |      $$$$$$$$\ $$$$$$  |\$$$$$$  |$$$$$$$$\ 
+    \__|     \______/  \______/       \________|\______/  \______/ \________|
+        """)
+        break
+
+    if unfinished == 0:
         print('\nBOO! You did not get all of your items!')
         minutes = str(minutes)
         print('You spent ' + minutes + ' minutes at the store')
