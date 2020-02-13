@@ -41,8 +41,8 @@ while minutes < 30:
         print('\n Great! Let\'s get started!')
         print('\n So ' + name + ' Which item would you like to start with?')
         if userInput == 'milk':
-            print('\nYou chose milk which is the aisle furthest away from you so you lose 5 minutes of time!')
-            minutes += 5
+            print('\nYou chose milk which is the aisle furthest away from you so you lose 10 minutes of time!')
+            minutes += 10
 
             print('\nOn the way to grab your milk, your old friend Beatrice stops you and asks if you have a couple minutes to chat')
             print('\nWould you like to stop and chat with Beatrice?')
@@ -52,7 +52,38 @@ while minutes < 30:
 
             if milk_choice.lower() == 'talk to beatrice':
                 print('\nBeatrice talks about her church congregation but sees that you are in a hurry. Beatrice gives you her bread so you don\'t have to get it yourself!')
-                cart += 2 
+                cart += 2
+
+                print('\nNow that you already have milk and bread, would you like to move on to the eggs or fruit next?')
+                print("\nType: 'eggs' or 'fruit'")
+                eggs_fruit = input()
+                if eggs_fruit.lower() == 'eggs':
+                    print('\nGreat let\'s head to the egg aisle')
+                    print('\nOH NO! All of the eggs are broken! You now have to wait 10 minutes while an employee get\'s some new eggs')
+                    minutes += 10
+                    print('\nYou now have spent 20 minutes in Whole Foods')
+                    cart += 1
+                    print('\n Finally you head to the fruit aisle to pick up your last item')
+                    print('\n Would you like to ask an employee for help finding your items?')
+                    print("\nType: 'help me' or 'go away")
+                    employee_help = input()
+                    if employee_help.lower() == 'help me':
+                        print('\nYou meet a kind worker who helps you find all the fruits you were looking for in a short amount of time!')
+                        minutes += 2
+                        print('\nYou now have spent 22 minutes in Whole Foods')
+                        cart += 1
+                    elif employee_help.lower() == 'go away':
+                        print('\nYou try to grab all the fruit but end up knocking over a few of the shelves because you do not have enough hands')
+                        print('\nYou are escorted out of the store before you got your last item and went home without groceries')
+                        break
+                        
+                elif eggs_fruit.lower() == 'fruit':
+                    print('\nGreat let\'s head to the fruit aisle')
+                    print('\nYou meet a kind worker who helps you find all the fruits you were looking for in a short amount of time!')
+                    minutes += 2
+                    print('You now have spent ' + minutes + ' minutes in Whole Foods')
+                    cart += 1
+
             elif milk_choice.lower() == 'walk away':
                 print('\nBeatrice screams at you for not wanting to talk. You and Beatrice are escorted out and you leave with no groceries or self-esteem. :(')
                 break
@@ -66,3 +97,6 @@ while minutes < 30:
         elif userInput == 'fruit':
             print('\nYou chose fruit which is the 3rd closest aisle so you lose 3 minutes')
             minutes += 3
+
+    if cart == 4:
+        print('You got all you items!')
