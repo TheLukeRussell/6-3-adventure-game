@@ -8,13 +8,15 @@ def script(str):
         sys.stdout.flush()
         time.sleep(0.03)
 
-script("Welome to Walmart! {name}")
+script("""
+            Welome to Walmart! {name}""")
 
-decision = input('Would you like to start shopping? (Y/N) ').lower()
+decision = input(f"""
+            Would you like to start shopping {ask_name} (Y/N)? """).lower()
 
 
-shopping_list = ['milk', 'bread', 'eggs', 'fruit']
-# script(shopping_list)
+shopping_list = ['milk', 'bread', 'eggs', 'bananas']
+# print(shopping_list)
 
 
 
@@ -28,7 +30,7 @@ if decision == "y":
             -milk
             -bread
             -eggs
-            -fruit
+            -bananas
 
 """)
 
@@ -47,7 +49,8 @@ while decision == "y":
             """).lower()
 
     if choice in shopping_list:
-        script(f"You chose {choice}")
+        script(f"""
+            You chose {choice}""")
         if choice == "milk":
             script("""
 
@@ -124,7 +127,8 @@ while decision == "y":
                     cart_contents[2] = "_"
                     script(cart_contents)
 
-                    milk_response_b = input("you get to the milk, would you like to pick it up (Y/N) ").lower()
+                    milk_response_b = input("""
+            You get to the milk, would you like to pick it up (Y/N) """).lower()
                     if milk_response_b == "y":
                         for index, char in enumerate(shopping_list):
                             if char == choice:
@@ -151,13 +155,18 @@ while decision == "y":
                 script("""
             Yodel Boy is not signing autographs at this time.
             """)
-                milk_response_c = input("you get to the milk, would you like to pick it up (Y/N) ").lower()
+                milk_response_c = input("""
+
+            you get to the milk, would you like to pick it up (Y/N) """).lower()
                 if milk_response_c == "y":
                     for index, char in enumerate(shopping_list):
                         if char == choice:
                             cart_contents[index] = choice
-                            script("You added the milk to your cart")
-                            script("cart contents", cart_contents)
+                            script("""
+            You added the milk to your cart
+                                """)
+                            script("""
+            cart contents""", cart_contents)
                 else:
                     script("""
 
@@ -194,14 +203,17 @@ while decision == "y":
             Go you!
 
                     """)
-                    eggs_response_a = input("you get to the eggs, would you like to pick them up (Y/N) ").lower()
+                    eggs_response_a = input("""
+            You get to the eggs, would you like to pick them up (Y/N) """).lower()
 
                     if eggs_response_a == "y":
                         for index, char in enumerate(shopping_list):
                             if char == choice:
                                 cart_contents[index] = choice
-                                script("You added the eggs to your cart")
-                                script("cart contents", cart_contents)
+                                script("""
+            You added the eggs to your cart""")
+                                script("""
+            cart contents""", cart_contents)
                     else:
                         script("""
 
@@ -218,14 +230,17 @@ while decision == "y":
                     cart_contents[0] = "_"
                     script(cart_contents)
 
-                    eggs_response_a = input("you get to the eggs, would you like to pick them up (Y/N) ").lower()
+                    eggs_response_a = input("""
+            You get to the eggs, would you like to pick them up (Y/N) """).lower()
 
                     if eggs_response_a == "y":
                         for index, char in enumerate(shopping_list):
                             if char == choice:
                                 cart_contents[index] = choice
-                                script("You added the eggs to your cart")
-                                script("cart contents", cart_contents)
+                                script("""
+            You added the eggs to your cart""")
+                                script("""
+            cart contents""", cart_contents)
                     else:
                         script("""
 
@@ -247,8 +262,10 @@ while decision == "y":
                     for index, char in enumerate(shopping_list):
                         if char == choice:
                             cart_contents[index] = choice
-                            script("You added eggs to your cart!")
-                            script("cart contents", cart_contents)
+                            script("""
+            You added eggs to your cart!""")
+                            script("""
+            cart contents""", cart_contents)
 
                 if attitude == 'mad':
                     script("""
@@ -256,7 +273,8 @@ while decision == "y":
             contents of your cart.
                     """)
                     cart_contents = ['_'] * len(shopping_list)
-                    script("Your cart is now empty!")
+                    script("""
+            Your cart is now empty!""")
                     script(cart_contents)
 
 #if the player chooses bread*************************************************
@@ -288,8 +306,10 @@ while decision == "y":
                     for index, char in enumerate(shopping_list):
                         if char == choice:
                             cart_contents[index] = choice
-                            script("You added bread to your cart!")
-                            script("cart contents", cart_contents)
+                            script("""
+            You added bread to your cart!""")
+                            script("""
+            cart contents""", cart_contents)
 
                 if accident == 'fall':
                     script("""
@@ -304,24 +324,29 @@ while decision == "y":
             but you still have to pay for your groceries.
 
                 """)
-                bread_response_a = input("you get to the bread, would you like to pick them up (Y/N) ").lower()
+                bread_response_a = input("""
+            You get to the bread, would you like to pick them up (Y/N) """).lower()
 
                 if bread_response_a == "y":
                     for index, char in enumerate(shopping_list):
                         if char == choice:
                             cart_contents[index] = choice
-                            script("You added the bread to your cart")
-                            script("cart contents", cart_contents)
+                            script("""
+            You added the bread to your cart
+            """)
+                            script("""
+            cart contents
+            """, cart_contents)
                 else:
                     script("""
 
-                Why did you walk all the way over here if you if you
-                aren't going to put it in your cart?
+            Why did you walk all the way over here if you if you
+            aren't going to put it in your cart?
 
                     """)
 
 # if the player chooses fruit************************************************
-        if choice == "fruit":
+        if choice == "bananas":
             script("""
 
             You get to the fruit section and come across a monkey guarding the bananas.
@@ -329,13 +354,13 @@ while decision == "y":
              """)
             approach_monkey = input("""
 
-             Do you want to approach the monkey? (Y/N)
+            Do you want to approach the monkey? (Y/N)
 
              """).lower()
             if approach_monkey == "y":
                  script("""
 
-            You chose to approach the monkey. The monkey would like to ask you riddle.
+            You chose to approach the monkey. The monkey would like to ask you a riddle.
             If you get the answer right, he will give you a banana.
 
             """)
@@ -360,7 +385,8 @@ while decision == "y":
                         for index, char in enumerate(shopping_list):
                             if char == choice:
                                 cart_contents[index] = choice
-                                script("cart contents", cart_contents)
+                                script("""
+            cart contents""", cart_contents)
                     else:
                         script("""
 
@@ -379,7 +405,8 @@ while decision == "y":
 
 
             if approach_monkey == "n":
-                 script("You can't complete your shopping trip if you don't get bananas")
+                 script("""
+            You can't complete your shopping trip if you don't get bananas""")
             #
             # for index, char in enumerate(shopping_list):
             #     if char == choice:
@@ -456,4 +483,5 @@ while decision == "y":
 
 
 if decision == "N":
-    script("BYE")
+    script("""
+            BYE""")
