@@ -43,7 +43,6 @@ LET'S
      GET
         STARTED!!
     """ + color.END)
-    script(color.RED + color.BOLD + '\nLET\'S DO THIS' + color.END)
     script(color.GREEN + '\n\n\nYour goal is simple, go to a grocery store and get items off the list' + color.END)
     script(color.GREEN + '\nHere\'s the kicker..   you have options' + color.END)
     script(color.YELLOW + '\nWould you like to shop at Walmart or Whole Foods\n> ')
