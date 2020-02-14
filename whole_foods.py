@@ -1,4 +1,5 @@
 import random
+import time, sys
 
 class color:
    PURPLE = '\033[95m'
@@ -12,14 +13,24 @@ class color:
    UNDERLINE = '\033[4m'
    END = '\033[0m'
 
+def script(str):
+
+    for letter in str:
+        sys.stdout.write(letter)
+        sys.stdout.flush()
+        time.sleep(0.03)
 number = random.randint(1, 50)
 
-name = 'Jezebel'
+script(color.YELLOW + color.BOLD + '\nBefore we get started, what is your name?\n> ')
+player_name = input()
+
+number = random.randint(1, 50)
+
 print(color.RED + color.BOLD)
-print('\n Congrats ' + name + '! You have chosen the high-class, but expensive route of a health foods store. Be prepared to face the challenges of the rich, wealthy and pretentious 1 percent of modern America.')
+script('\nCongrats ' + player_name + '! You have chosen the high-class, but expensive route of a \nhealth foods store. Be prepared to face the challenges of the rich, \nwealthy and pretentious 1 percent of modern America.')
 print(color.END)
 print(color.GREEN)
-print(
+script(
     """
     Your shopping list includes:
     > Milk
@@ -28,10 +39,10 @@ print(
     > Fruit
     """)
 print(color.BLUE)
-print('\n You have 30 minutes inside Whole Foods to finish your shopping list or else you will be late for dinner')
-print('\n So what are you thinking ' + name + '? Do you think you can get your groceries becolor it is time for dinner?')
+script('You have 30 minutes inside Whole Foods to finish your shopping list or else \nyou will be late for dinner')
+script('\nSo what are you thinking ' + player_name + '? Do you think you can get your groceries \nbefore it is time for dinner?')
 print(color.YELLOW)
-print('Choose y/n')
+script('Choose y/n')
 minutes = 0
 cart = 0
 unfinished = 1
@@ -46,15 +57,15 @@ while minutes < 30:
 
     elif userInput == 'n':
         print(color.RED)
-        print('\n You were not ready to get groceries so you went home without any \n and your significant other asked for a divorce and the night was ruined')
-        print('\n You lose, and now you are single')
+        print('\nYou were not ready to get groceries so you went home without any \n and your significant other asked for a divorce and the night was ruined')
+        print('\nYou lose, and now you are single')
         unfinished = 0
     else:
         print(color.BLUE)
-        print('\n Great! Let\'s get started!')
-        print('\n So ' + name + ' Which item would you like to start with?')
+        print('\nGreat! Let\'s get started!')
+        print('\nSo ' + player_name + ' Which item would you like to start with?')
         print(color.YELLOW)
-        print("\n You have a choice between 'milk', 'eggs', 'fruit', or 'bread'")
+        print("\nYou have a choice between 'milk', 'eggs', 'fruit', or 'bread'")
         grocery_list = input('> ')
         if grocery_list.lower() == 'milk':
             print(color.BLUE)
@@ -67,7 +78,7 @@ while minutes < 30:
             milk_choice = input('> ')
             print(color.BLUE)
             if milk_choice.lower() == 'talk to beatrice':
-                print('\nBeatrice talks about her church congregation but sees that you are in a hurry. Beatrice gives you her bread so you don\'t have to get it yourself!')
+                print('\nBeatrice talks about her church congregation but sees that you are in a hurry. \nBeatrice gives you her bread so you don\'t have to get it yourself!')
                 cart += 2
                 print(color.YELLOW)
                 print('\nNow that you already have milk and bread, would you like to move on to the eggs or fruit next?')
@@ -82,9 +93,9 @@ while minutes < 30:
                     print('\nYou now have spent 20 minutes in Whole Foods')
                     cart += 1
                     print(color.BLUE)
-                    print('\n Finally you head to the fruit aisle to pick up your last item')
+                    print('\nFinally you head to the fruit aisle to pick up your last item')
                     print(color.YELLOW)
-                    print('\n Would you like to ask an employee for help finding your items?')
+                    print('\nWould you like to ask an employee for help finding your items?')
                     print("\nType: 'help me' or 'go away'")
                     employee_help = input('> ')
                     print(color.BLUE)
@@ -110,10 +121,10 @@ while minutes < 30:
                     print('\nYou now have spent 12 minutes in Whole Foods')
                     cart += 1
                     print(color.BLUE)
-                    print('\n Now, we have one more item left. Let\'s head to the egg aisle!')
+                    print('\nNow, we have one more item left. Let\'s head to the egg aisle!')
                     print(color.YELLOW)
-                    print('\nOH NO! All of the eggs are broken! Would you like to wait for an employee to get fresh eggs or would you like to take broken eggs home?')
-                    print("\n Type: 'Get help' or 'broken eggs'")
+                    print('\nOH NO! All of the eggs are broken! Would you like to wait for an employee \nto get fresh eggs or would you like to take broken eggs home?')
+                    print("\nType: 'Get help' or 'broken eggs'")
                     broken_eggs = input('> ')
                     print(color.Blue)
                     if broken_eggs.lower() == 'get help':
@@ -128,12 +139,13 @@ while minutes < 30:
                         print('\n NOPE YOU DID NOT')
                         unfinished = 0
                     else:
+                        
                         print('Come on.. you need to choose')
                 else:
                     print('Come on.. you need to choose')
             elif milk_choice.lower() == 'walk away':
                 print(color.RED)
-                print('\nBeatrice screams at you for not wanting to talk. You and Beatrice are escorted out and you leave with no groceries or self-esteem. :(')
+                print('\nBeatrice screams at you for not wanting to talk. You and Beatrice are escorted \nout and you leave with no groceries or self-esteem. :(')
                 print(color.BLUE)
                 unfinished = 0
             else:
@@ -154,7 +166,7 @@ while minutes < 30:
                 cart += 3
                 print(color.ready)
             elif last_loaf.lower() == 'take it':
-                print("\nYou were set up and was a secret contestant on the game-show 'What Would You Do?'. You failed the challenge and now have spent too much time at the store")
+                print("\nYou were set up and was a secret contestant on the game-show 'What Would You Do?'. \nYou failed the challenge and now have spent too much time at the store")
                 print('\nYou spend an hour talking to TV cameras and the producers')
                 minutes += 60
                 print(color.BLUE)
@@ -207,7 +219,7 @@ while minutes < 30:
                         print(color.BLUE)
                         if honeycrisp.lower() == 'i love honeycrisp':
                             print(color.RED)
-                            print('\n Oh No!! The apple gave you food poisoning and you spent 37 minutes in the bathroom!')
+                            print('\nOh No!! The apple gave you food poisoning and you spent 37 minutes in the bathroom!')
                             minutes += 37
                             print(color.BLUE)
                         elif honeycrisp.lower() == 'no honeycrisp for me':
@@ -221,7 +233,7 @@ while minutes < 30:
                             print('Come on.. you need to choose')
                     elif choice_milk.lower() == 'walk':
                         print(color.RED)
-                        print('\nBeatrice screams at you for not wanting to talk. You and Beatrice are escorted out and you leave with no groceries or self-esteem. :(')
+                        print('\nBeatrice screams at you for not wanting to talk. You and Beatrice are escorted \nout and you leave with no groceries or self-esteem. :(')
                         unfinished = 0
                         print(color.BLUE)
                     else:
@@ -242,7 +254,7 @@ while minutes < 30:
                         print(color.DARKCYAN)
                     elif workout.lower() == 'duh':
                         print('\nGreat! If you want your groceries, you have to pass this challenge')
-                        print('I am going to randomize a number between 1-50 and if it is over 25, you have to leave without groceries.\n If you win, you get to go home and your shopping trip will be over')
+                        print('I am going to randomize a number between 1-50 and if it is over 25, you have \nto leave without groceries. If you win, you get to go home and your shopping trip will be over')
                         
                         print(color.YELLOW)
                         print('\nReady?')
@@ -328,7 +340,7 @@ while minutes < 30:
                     
                     print(color.RED)
                 elif ex_lover.lower() == 'bye felicia':
-                    print('Your ex, having learned Mixed-Martial-Arts post-breakup, kicks you in the face for dissing her and you have to spend 45 minutes in the bathroom cleaning up your bloody nose.')
+                    print('Your ex, having learned Mixed-Martial-Arts post-breakup, kicks you in the face for dissing \nher and you have to spend 45 minutes in the bathroom cleaning up your bloody nose.')
                     minutes += 45
                     
                     print(color.BLUE)
