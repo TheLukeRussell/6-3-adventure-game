@@ -2,7 +2,7 @@ import random
 
 print("Welome to Walmart! {name}")
 
-decision = input('Would you like to start shopping? (Y/N)').lower()
+decision = input('Would you like to start shopping? (Y/N) ').lower()
 
 
 shopping_list = ['milk', 'bread', 'eggs', 'fruit']
@@ -13,23 +13,30 @@ shopping_list = ['milk', 'bread', 'eggs', 'fruit']
 if decision == "y":
     print(
 """
-Ok, lets go shopping!
+            Ok, lets go shopping!
 
-This is your shopping list:
+            This is your shopping list:
 
--milk
--bread
--eggs
--fruit
+            -milk
+            -bread
+            -eggs
+            -fruit
 
 """)
 
 cart_contents = ['_'] * len(shopping_list)
-print("cart contents:",cart_contents)
+print("""
+            cart contents:
+
+           """,cart_contents)
 
 
 while decision == "y":
-    choice = input("What would you like to pickup?").lower()
+    choice = input("""
+
+            What would you like to pickup?
+
+            """).lower()
 
     if choice in shopping_list:
         print(f"You chose {choice}")
@@ -40,6 +47,7 @@ while decision == "y":
 
             """)
             response_to_yodel_boy = input("""
+
             Yodel Boy wants to sing for you.
 
             A: You let him sing.
@@ -62,19 +70,30 @@ while decision == "y":
             He hands you a coupon for milk.
 
             """)
-                milk_response_a = input("you get to the milk, would you like to pick it up (Y/N) ").lower()
+                milk_response_a = input("""
+
+            you get to the milk, would you like to pick it up (Y/N)
+
+             """).lower()
 
                 if milk_response_a == "y":
                     for index, char in enumerate(shopping_list):
                         if char == choice:
                             cart_contents[index] = choice
-                            print("You added the milk to your cart")
-                            print("cart contents", cart_contents)
+                            print("""
+
+            You added the milk to your cart
+
+            """)
+                            print("""
+            cart contents
+
+            """, cart_contents)
                 else:
                     print("""
 
-                    Why did you walk all the way over here if you if you
-                    aren't going to put it in your cart?
+            Why did you walk all the way over here if you if you
+            aren't going to put it in your cart?
 
                     """)
 
@@ -102,13 +121,21 @@ while decision == "y":
                         for index, char in enumerate(shopping_list):
                             if char == choice:
                                 cart_contents[index] = choice
-                                print("You added the milk to your cart")
-                                print("cart contents", cart_contents)
+                                print("""
+
+            You added the milk to your cart
+
+                                """)
+                                print("""
+
+            cart contents
+
+            """, cart_contents)
                     else:
                         print("""
 
-                            Why did you walk all the way over here if you if you
-                            aren't going to put it in your cart?
+            Why did you walk all the way over here if you if you
+            aren't going to put it in your cart?
 
                             """)
 
@@ -269,7 +296,7 @@ while decision == "y":
             but you still have to pay for your groceries.
 
                 """)
-                bread_response_a = input("you get to the eggs, would you like to pick them up (Y/N) ").lower()
+                bread_response_a = input("you get to the bread, would you like to pick them up (Y/N) ").lower()
 
                 if bread_response_a == "y":
                     for index, char in enumerate(shopping_list):
@@ -292,16 +319,60 @@ while decision == "y":
             You get to the fruit section and come across a monkey guarding the bananas.
 
              """)
-             approach_monkey = input("""
+            approach_monkey = input("""
 
              Do you want to approach the monkey? (Y/N)
 
              """).lower()
-             if approach_monkey == "y":
-                 print("You have approached the monkey")
-             if approach_monkey == "n":
+            if approach_monkey == "y":
+                 print("""
+
+            You chose to approach the monkey. The monkey would like to ask you riddle.
+            If you get the answer right, he will give you a banana.
+
+            """)
+                 answer_riddle = input("""
+            Do you want to answer a riddle? (Y/N)
+
+            """).lower()
+                 if answer_riddle == "y":
+                    riddle1 = input(
+            """
+            David's father has three sons: Snap, Crackle
+            and_____?
+
+                    """)
+                    if riddle1 == "David" or "david":
+                        print("""
+
+            The monkey is pleased that you go the answer to his riddle right.
+            The monkey gives you a banana.
+
+                         """)
+                        for index, char in enumerate(shopping_list):
+                            if char == choice:
+                                cart_contents[index] = choice
+                                print("cart contents", cart_contents)
+                    else:
+                        print("""
+
+            The monkey thinks you are very dumb. He is not going to give you a banana.
+
+                         """)
+
+                 if answer_riddle == "n":
+                        print("""
+
+            The monkey thinks you are boring and eats your bread.
+
+                         """)
+                        cart_contents[1] = "_"
+                        print(cart_contents)
+
+
+            if approach_monkey == "n":
                  print("You can't complete your shopping trip if you don't get bananas")
-            # 
+            #
             # for index, char in enumerate(shopping_list):
             #     if char == choice:
             #         cart_contents[index] = choice
@@ -313,27 +384,66 @@ while decision == "y":
                 print(
                 """
 
-                You left the store without paying.
-                You have been arrested and are going to jail.
-                Your wife is going to be so mad.
+            You left the store without paying.
+            You have been arrested and are going to jail.
+            Your wife is going to be so mad.
 
                 """)
                 break
             else:
                 print("""
 
-                You left the store without putting anything in your cart.
-                Your wife is going to be so mad.
+            You left the store without putting anything in your cart.
+            Your wife is going to be so mad.
 
                 """)
                 break
 
         if choice != "exit":
             print("""
+
             That is not on your list, stick to the list!
+
             """)
     if shopping_list == cart_contents:
-        print("go to checkout")
+        print("""
+
+            You got everything on your list!
+
+         """)
+        checkout_response = input("""
+
+            Would you like to checkout? (Y/N)
+
+         """).lower()
+
+        if checkout_response == "y":
+            print("""
+
+            You pay for all your items and leave the store.
+
+            """)
+            break
+        if checkout_response == "n":
+            leave_without_paying = input("""
+
+            Are you sure you want to leave without paying? (Y/N)
+
+                """).lower()
+            if leave_without_paying == "y":
+                print("""
+
+            Run for it!
+
+            """)
+            if leave_without_paying == "n":
+                print("""
+            Wow, you are such a good person!
+            You proceed to the checkout and leave the store.
+                    """)
+                break
+
+
         break
 
 
