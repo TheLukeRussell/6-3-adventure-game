@@ -66,7 +66,7 @@ while minutes < 30:
         script('\nSo ' + player_name + ' Which item would you like to start with?')
         print(color.YELLOW)
         script("\nYou have a choice between 'milk', 'eggs', 'fruit', or 'bread'")
-        grocery_list = input('> ')
+        grocery_list = input('\n> ')
         if grocery_list.lower() == 'milk':
             print(color.BLUE)
             script('\nYou chose milk which is the aisle furthest away from you so you lose 10 minutes of time!')
@@ -306,7 +306,7 @@ while minutes < 30:
                 print(color.YELLOW)
                 script('\nDo you drink the Corona\'s or do you head home to stop the spread of the disease?')
                 script("\nType: 'Lifes a beach' or 'Head home'")
-                corona = input('> ')
+                corona = input('\n> ')
                 print(color.RED)
                 if corona.lower() == 'lifes a beach':
                     script('\nOh no! You go drunk at Whole Foods on a Tuesday afternoon')
@@ -320,7 +320,7 @@ while minutes < 30:
                     script('Come on.. you need to choose')
             elif aisle_list.lower() == 'eggs':
                 script('\nYou head to the egg aisle to continue your shopping.')
-                script('\nIt takes you 10 minutes to get to the bread aisle because you got distracted by the charcuterie boards that were on sale')
+                script('\nIt takes you 10 minutes to get to the egg aisle because you got distracted by the charcuterie boards that were on sale')
                 
                 print(color.RED)
                 script('\nYou pick up the eggs and head over to the milk aisle because you saw your ex in the bread aisle')
@@ -328,9 +328,9 @@ while minutes < 30:
                 minutes += 10
                 
                 print(color.YELLOW)
-                script('\nEven though you tried avoiding them, your ex spots you trying to escape and wants to have a conversation, what do you do?')
-                script("Type: 'Stay and talk' or 'Bye Felicia'")
-                ex_lover = input('> ')
+                script('\nEven though you tried avoiding them, your ex spots you trying to escape and \nwants to have a conversation, what do you do?')
+                script("\nType: 'Stay and talk' or 'Bye Felicia'")
+                ex_lover = input('\n> ')
                 
                 print(color.BLUE)
                 if ex_lover.lower() == 'stay and talk':
