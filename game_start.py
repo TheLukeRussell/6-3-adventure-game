@@ -19,8 +19,8 @@ def script(str):
     for letter in str:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(0.1)
-script(color.GREEN + color.BOLD + color.UNDERLINE + '\nWelcome to THE Choose Your Own Adventure Game!' + color.END)
+        time.sleep(0.07)
+script(color.GREEN + color.BOLD + color.UNDERLINE + '\nWelcome to Rachel & Luke\'s Choose Your Own Adventure Game!' + color.END)
 script(color.BLUE + color.BOLD + '\n\nUsually, going to the grocery store is easy right?!' + color.END)
 script(color.RED + color.BOLD + '\n\nThink again          muahahaha    ' + color.END)
 script(color.YELLOW + color.BOLD + '\n\nPlayer 1....... are you ready? Y/N' + color.END)
