@@ -29,7 +29,6 @@ if decision == "y":
             -bread
             -eggs
             -fruit
-
 """)
 
 cart_contents = ['_'] * len(shopping_list)
