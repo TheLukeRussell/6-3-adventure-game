@@ -464,14 +464,30 @@ while decision == "y":
             Do you want to run for it? They probably won't catch you. (Y/N)
 
             """).lower()
-                if run_for_it == 'y':
-                    script("""
+            if run_for_it == 'y':
+                script("""
 
             RUN FOR IT!
 
             """)
-                if run_for_it == 'n':
+                caught_or_not = ['caught','not caught','not caught']
+                outcome = random.choice(caught_or_not)
+                if outcome == 'caught':
                     script("""
+            You are caught running from the store. You are arrested and go to jail.
+            Your wife is going to be so mad.
+
+                """)
+                    break
+                if outcome == 'not caught':
+                    script("""
+            WOOOOO!!!! You got away with it you sneaky devil.
+            Congrats on your free groceries.
+                        """)
+                    break
+
+            if run_for_it == 'n':
+                script("""
 
             It's probably for the best.
 
@@ -479,7 +495,7 @@ while decision == "y":
             You checkout and leave the store.
 
             """)
-                    break
+                break
 
         if checkout_response == "n":
             leave_without_paying = input("""
@@ -493,6 +509,21 @@ while decision == "y":
             RUN FOR IT!
 
             """)
+                caught_or_not2 = ['caught','not caught','not caught']
+                outcome = random.choice(caught_or_not2)
+                if outcome2 == 'caught':
+                    script("""
+            You are caught running from the store. You are arrested and go to jail.
+            Your wife is going to be so mad.
+
+                """)
+                    break
+                if outcome2 == 'not caught':
+                    script("""
+            WOOOOO!!!! You got away with it you sneaky devil.
+            Congrats on your free groceries.
+                        """)
+                    break
             if leave_without_paying == "n":
                 script("""
             Wow, you are such a good person!
@@ -505,5 +536,5 @@ while decision == "y":
 
 
 if decision == "N":
-    print("""
-            BYE""")
+    print(f"""
+            Bye {player_name} hope to see you again soon!""")
