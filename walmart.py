@@ -458,7 +458,29 @@ while decision == "y":
             You get to the checkout line and there is only one register open.
 
             """)
-            break
+
+            run_for_it = input("""
+
+            Do you want to run for it? They probably won't catch you. (Y/N)
+
+            """).lower()
+                if run_for_it == 'y':
+                    script("""
+
+            RUN FOR IT!
+
+            """)
+                if run_for_it == 'n':
+                    script("""
+
+            It's probably for the best.
+
+            Wow, you are such a good person!
+            You checkout and leave the store.
+
+            """)
+                    break
+
         if checkout_response == "n":
             leave_without_paying = input("""
 
@@ -468,13 +490,13 @@ while decision == "y":
             if leave_without_paying == "y":
                 script("""
 
-            Run for it!
+            RUN FOR IT!
 
             """)
             if leave_without_paying == "n":
                 script("""
             Wow, you are such a good person!
-            You proceed to the checkout and leave the store.
+            You checkout and leave the store.
                     """)
                 break
 
